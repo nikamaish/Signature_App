@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signature Pad</title>
     <link rel="stylesheet" href="./style.css">
-    <style>
-      
-    </style>
+
     <!-- Include the Signature Pad library -->
     <script src="https://unpkg.com/signature_pad"></script>
+    
 </head>
 <body>
     <h1>Sign on the Blank Page</h1>
     <div id="signature-container">
         <!-- Create a canvas for the signature pad with an ID for styling -->
-        <canvas id="signature-pad" width="400" height="200"></canvas>
+        <canvas id="signature-pad" width="350" height="200"></canvas>
         <!-- Add buttons for download and reload -->
         <div class="buttons">
         <button id="download-btn">Download Signature</button>
@@ -23,28 +22,7 @@
     </div>
     </div>
 
-    <script>
-        // Initialize the Signature Pad
-        var canvas = document.getElementById('signature-pad');
-        var signaturePad = new SignaturePad(canvas);
-
-        // Handle the download button click
-        document.getElementById('download-btn').addEventListener('click', function () {
-            // Convert the signature to an image and trigger download
-            var dataURL = signaturePad.toDataURL();
-            var link = document.createElement('a');
-            link.href = dataURL;
-            link.download = 'signature.png';  // Specify the file name with a .png extension
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
-
-        // Handle the reload button click
-        document.getElementById('reload-btn').addEventListener('click', function () {
-            // Clear the signature pad
-            signaturePad.clear();
-        });
-    </script>
+    <script src="./script.js"></script>
+  
 </body>
 </html>
