@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Page</title>
+    <style>
+        /* Set the background color of the canvas */
+        #signature-pad {
+            background-color: lightgray; /* Replace with your desired color */
+        }
+    </style>
+    <!-- Include the Signature Pad library -->
+    <script src="https://unpkg.com/signature_pad"></script>
+</head>
+<body>
+    <h1>Sign on the Blank Page</h1>
+    <!-- Create a canvas for the signature pad with an ID for styling -->
+    <canvas id="signature-pad" width="400" height="200"></canvas>
+    <!-- Add buttons for download and reload -->
+    <button id="download-btn">Download Signature</button>
+    <button id="reload-btn">Reload</button>
+
+    <script>
+        // Initialize the Signature Pad
+        var canvas = document.getElementById('signature-pad');
+        var signaturePad = new SignaturePad(canvas);
+
+        // Handle the download button click
+        document.getElementById('download-btn').addEventListener('click', function () {
+            // Convert the signature to an image and trigger download
+            var dataURL = signaturePad.toDataURL();
+            var link = document.createElement('a');
+            link.href = dataURL;
+            link.download = 'signature.png';  // Specify the file name with a .png extension
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        // Handle the reload button click
+        document.getElementById('reload-btn').addEventListener('click', function () {
+            // Clear the signature pad
+            signaturePad.clear();
+        });
+    </script>
+</body>
+</html>
