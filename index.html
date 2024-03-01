@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signature Page</title>
+    <title>Signature Pad</title>
+    <link rel="stylesheet" href="./style.css">
     <style>
-        /* Set the background color of the canvas */
-        #signature-pad {
-            background-color: lightgray; /* Replace with your desired color */
-        }
+      
     </style>
     <!-- Include the Signature Pad library -->
     <script src="https://unpkg.com/signature_pad"></script>
 </head>
 <body>
     <h1>Sign on the Blank Page</h1>
-    <!-- Create a canvas for the signature pad with an ID for styling -->
-    <canvas id="signature-pad" width="400" height="200"></canvas>
-    <!-- Add buttons for download and reload -->
-    <button id="download-btn">Download Signature</button>
-    <button id="reload-btn">Reload</button>
+    <div id="signature-container">
+        <!-- Create a canvas for the signature pad with an ID for styling -->
+        <canvas id="signature-pad" width="400" height="200"></canvas>
+        <!-- Add buttons for download and reload -->
+        <div class="buttons">
+        <button id="download-btn">Download Signature</button>
+        <button id="reload-btn">Reload</button>
+    </div>
+    </div>
 
     <script>
         // Initialize the Signature Pad
