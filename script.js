@@ -6,6 +6,33 @@ var signaturePad = new SignaturePad(canvas, {
     penColor: "black"
 });
 
+// Function to save canvas as JPEG with a white background
+function downloadAsJPEG() {
+    // Create a temporary canvas to fill the background
+    var tempCanvas = document.createElement('canvas');
+    var ctx = tempCanvas.getContext('2d');
+
+    // Set the canvas size to match the signature pad
+    tempCanvas.width = canvas.width;
+    tempCanvas.height = canvas.height;
+
+    // Fill the background with white
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+
+    // Draw the signature (with transparency) on top of the white background
+    ctx.drawImage(canvas, 0, 0);
+
+    // Convert the canvas to a JPEG data URL
+    var dataURL = tempCanvas.toDataURL('image/jpeg');
+    var link = document.createElement('a');
+    link.href = dataURL;
+    link.download = 'signature.jpeg';  // Set the file name with .jpeg extension
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 // Handle the download button click
 document.getElementById('download-btn').addEventListener('click', function () {
     // Get the selected format from the dropdown
@@ -25,14 +52,7 @@ document.getElementById('download-btn').addEventListener('click', function () {
         // Download the PDF file
         pdf.save('signature.pdf');
     } else if (format === 'jpeg') {
-        // Convert the signature to a JPEG image
-        var dataURL = signaturePad.toDataURL('image/jpeg');
-        var link = document.createElement('a');
-        link.href = dataURL;
-        link.download = 'signature.jpeg';  // Set the file name with .jpeg extension
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        downloadAsJPEG();  // Call the function to download as JPEG
     }
 });
 
