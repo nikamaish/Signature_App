@@ -8,7 +8,8 @@
 
     <!-- Include the Signature Pad library -->
     <script src="https://unpkg.com/signature_pad"></script>
-    
+    <!-- Include jsPDF library for generating PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <h1>Sign on the Blank Page</h1>
@@ -17,20 +18,17 @@
         <canvas id="signature-pad" width="350" height="200"></canvas>
     
         <!-- Add a select dropdown for download format options -->
-        <label for="format-select">Choose format:</label>
-        <select id="format-select">
-            <option value="pdf">PDF</option>
-            <option value="jpeg">JPEG</option>
-        </select>
-    
-        <!-- Add buttons for download and reload -->
         <div class="buttons">
             <button id="download-btn">Download Signature</button>
+            <label for="format-select">Choose format:</label>
+            <select id="format-select">
+                <option value="pdf">PDF</option>
+                <option value="jpeg">JPEG</option>
+            </select>
             <button id="reload-btn">Erase</button>
         </div>
     </div>
     
-
     <script src="./script.js"></script>
   
 </body>
