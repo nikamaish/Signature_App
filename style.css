@@ -43,6 +43,28 @@ h1 {
     background-color: #45a049;
 }
 
+/* Style for 'Choose format' label */
+label[for="format-select"] {
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Styling the format select dropdown */
+#format-select {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+
 /* Increase height of canvas for small devices */
 @media screen and (max-width: 600px) {
     #signature-container {
